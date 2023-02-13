@@ -15,7 +15,6 @@ from PyQt5.QtWebEngineWidgets import QWebEngineSettings, QWebEngineView
 from PyQt5 import QtWidgets, QtCore
 from superqt import QRangeSlider, QLabeledSlider
 from PyQt5.QtWidgets import QFileDialog
-from contextlib import redirect_stdout
 import json
 import html_to_json
 import re
