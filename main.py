@@ -384,40 +384,20 @@ class YouTubePlayer(QWidget):
             pass
         
     def makeClips(self):
-        #with open('DEBUGGING.txt', 'a+') as f:
-        #    f.writelines('hemos llamado a la funcion makeClips\n')
-        #    f.close()
-            
+
         self.clipsStatus.setText('Creating clips...')
         required_video_file = self.file_path+'/' + youtubeVideoTitle+'.mp4'
         print('****************')
         print('path is '+required_video_file)
         
-        #with open('DEBUGGING.txt', 'a+') as f:
-        #    f.writelines('hemos construido la cadena file\n')
-        #    f.close()
-
         i = 0
         print('i is '+str(i))
-        while(i<len(self.clipList)):
-            
-            #with open('DEBUGGING.txt', 'a+') as f:
-            #    f.writelines('hemos entrado en el bucle con i: '+str(i)+'\n')
-            #    f.close()
-            
-            #with open('DEBUGGING.txt', 'a+') as f:
-            #    f.writelines('i e i+1 son : '+str(self.clipList[i])+' '+str(self.clipList[i+1])+'\n')
-            #    f.close()
-                
+        while(i<len(self.clipList)):     
             clipStart = round(self.clipList[i] * youtubeVideoLength / 100)
             clipEnd = round(self.clipList[i+1] * youtubeVideoLength / 100)
             print('clipstart is '+str(clipStart))
             print('clipend is '+str(clipEnd))
                         
-            #with open('DEBUGGING.txt', 'a+') as f:
-            #    f.writelines('clipStart = '+str(clipStart)+' clipEnd = '+str(clipEnd)+'\n')
-            #    f.close()
-            
             try:
                 input_video = VideoFileClip(required_video_file)        
                 clip = input_video.subclip(clipStart, clipEnd)
@@ -431,7 +411,6 @@ class YouTubePlayer(QWidget):
     
     def countNumberOfClipsOnSliderValue(self):
         hardness = self.slider.sliderPosition()/100
-        #hardness = hardness*0.5
         numberOfClips=0
         
         i = 0
@@ -458,7 +437,6 @@ class YouTubePlayer(QWidget):
     
     def updateClipBar(self):
         hardness = self.slider.sliderPosition()/100
-        #hardness = hardness*0.5
         
         i = 0
         self.clipList = []
